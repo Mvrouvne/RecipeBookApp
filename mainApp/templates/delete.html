@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .delete-button {
+            background-color: red;
+            color: #fff;
+        }
+        .delete-button:hover {
+            background-color: darkred;
+        }
+        .cancel-button {
+            background-color: #ccc;
+            color: #333;
+        }
+        .cancel-button:hover {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Are you sure you want to delete this book?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="button delete-button">Delete</button>
+            <a href="{% url 'home' %}" class="button cancel-button">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
